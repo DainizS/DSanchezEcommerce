@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a1393f1323354494b6bd72df97795311" Name="Diagram1">
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Area" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Departamento" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.MetodoPago" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Producto" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Proveedor" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Rol" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Usuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.Venta" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSanchezEcommerceModel.VentaProducto" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__Departame__IdAre__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__Producto__IdDepa__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__Venta__IdMetodoP__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__Producto__IdProv__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__VentaProd__IdPro__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__Usuario__IdRol__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__Venta__IdUsuario__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="DSanchezEcommerceModel.FK__VentaProd__IdVen__35BCFE0A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

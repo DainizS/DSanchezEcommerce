@@ -1,0 +1,65 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>PRODUCTOS</h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Lista de productos</h2>
+        </div>
+    </div>
+
+
+    <div class="row card-deck container">
+        <div class="col-lg-12">
+
+            @foreach (ML.Producto producto in Model.Productos)
+            {
+                <div class="card col-md-4 ">
+                    @if (producto.Imagen != null)
+                    {
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(producto.Imagen)" style="height:150px; width:150px">
+                    }
+                    else
+                    {
+                        <img src="~/Content/SIN-IMAGEN.jpg" style="height:150px; width:150px">
+                    }
+
+                    <p class="price">$ @producto.PrecioUnitario </p>
+                    <p>@producto.Nombre</p>
+                    <p>@producto.Descripcion</p>
+                    <p>
+                        <a href="@Url.Action("AddCarrito", "Venta", new { IdProducto = producto.IdProducto })" class="btn" style="background-color:#292b2c; color:white ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                            Agregar a carrito
+                        </a>
+
+                        @*<button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg> Agregar al carrito
+                            </button>*@
+                    </p>
+                </div>
+
+
+            }
+
+
+        </div>
+    </div>
+</div>
+

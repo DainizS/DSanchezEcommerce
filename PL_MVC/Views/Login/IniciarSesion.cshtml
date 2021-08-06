@@ -1,0 +1,53 @@
+﻿@model ML.Usuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IniciarSesion</title>
+    <link href="~/content/Login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="login">
+        <div class="account-login">
+            <h1>Cuenta Login</h1>
+            <h2>UserName jose.dai@hotmail.com</h2>
+            <h2>pasword 123456</h2> 
+            @*<form action="" class="login-form">*@
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post, htmlAttributes: new {@class="login-form" }))
+                {
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.UserName, new { Class = "form-control", placeholder = "User Name" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Password, new { Class = "form-control", placeholder = "Password", type = "Password" })
+                        
+                    </div>
+                    <div class="remember">
+                        <label class="custom-checkbox">
+                            Remember me
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <a href="#" class="pull-right">contraseña olvidada?</a>
+                    </div>
+                    
+                    <button class="btn btn-danger">Login</button>
+                    @Html.ActionLink("Registrarme", "Add", "Login")
+                }
+            @*</form>*@
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\DL_EF.dll.config
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\DL_EF.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\DL_EF.pdb
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\EntityFramework.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\EntityFramework.xml
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\obj\Debug\DL_EF.csprojResolveAssemblyReference.cache
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\obj\Debug\DL_EF.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL_EF\obj\Debug\DL_EF.pdb

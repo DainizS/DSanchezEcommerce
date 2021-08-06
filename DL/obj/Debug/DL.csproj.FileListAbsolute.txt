@@ -1,0 +1,4 @@
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL\bin\Debug\DL.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL\bin\Debug\DL.pdb
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL\obj\Debug\DL.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\DSanchezEcommerce\DL\obj\Debug\DL.pdb

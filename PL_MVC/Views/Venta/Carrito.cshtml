@@ -1,0 +1,196 @@
+﻿@*PUEDO TAMBIEN UTILIZAR Model List<object>*@
+@model ML.Result
+@{
+    ViewBag.Title = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey" style="padding: 3em">
+    <div class="col-md-12 col-sm-8 content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info panel-shadow">
+                    <div class="panel-heading">
+                        <h3>
+                            <img class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/user_3.jpg">
+                            --- USUARIO ---
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Descripcion</th>
+                                        <th>Stock</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th>Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Objects != null)
+                                    {
+
+                                        foreach (ML.VentaProducto Varticulos in Model.Objects)
+                                        {
+
+
+                                            <tr>
+                                                <td><img src="data:image/jpeg;base64,@Convert.ToBase64String(Varticulos.Producto.Imagen)" class="img-cart"></td>
+                                                <td><strong>@Varticulos.Producto.Nombre </strong><p>@Varticulos.Producto.Descripcion</p></td>
+                                                <td> @Varticulos.Producto.Stock</td>
+                                                <td>
+                                                    <form class="form-inline">
+
+
+
+
+
+
+
+                                                        @if (Varticulos.Cantidad > Varticulos.Producto.Stock)
+                                                        {
+                                                            <a class="btn btn-warning" href="@Url.Action("Decrementar", "Venta", new { IdProducto = Varticulos.Producto.IdProducto })">-</a>
+
+                                                            <input name="Cantidad" class="btn" @*type="number"*@ min="0" value="@Varticulos.Producto.Stock" disabled>
+
+                                                            <a onclick="confirm('stok vacio'); return false" class="btn btn-primary"><span>+</span><i class="fa"></i></a>
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Varticulos.Cantidad > 1)
+                                                            {
+
+                                                                if (Varticulos.Cantidad == Varticulos.Producto.Stock)
+                                                                {
+                                                                    <a class="btn btn-warning" href="@Url.Action("Decrementar", "Venta", new { IdProducto = Varticulos.Producto.IdProducto })">-</a>
+
+                                                                    <input name="Cantidad" class="btn" @*type="number"*@ min="0" value="@Varticulos.Cantidad" disabled>
+
+                                                                    <a onclick="confirm('stok vacio'); return false" class="btn btn-primary btn-danger"><span>+</span><i class="fa"></i></a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a class="btn btn-warning" href="@Url.Action("Decrementar", "Venta", new { IdProducto = Varticulos.Producto.IdProducto })">-</a>
+                                                                    <input name="Cantidad" class="btn" @*type="number"*@ min="0" value="@Varticulos.Cantidad" disabled>
+
+                                                                    <a href="@Url.Action("Incrementar", "Venta", new { IdProducto =  @Varticulos.Producto.IdProducto })" class="btn btn-primary btn-danger"><span>+</span><i class="fa"></i></a>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+
+
+                                                                <a class="btn btn-warning" href="@Url.Action("Eliminar", "Venta", new { IdProducto = Varticulos.Producto.IdProducto })" onclick="confirm('Estas seguro que deseas eliminar este registro?');" ;>-</a>
+                                                                <input name="Cantidad" class="btn" @*type="number"*@ min="0" value="@Varticulos.Cantidad" disabled>
+                                                                <a href="@Url.Action("Incrementar", "Venta", new { IdProducto =  @Varticulos.Producto.IdProducto })" class="btn btn-primary btn-danger"><span>+</span><i class="fa"></i></a>
+
+
+
+
+                                                            }
+                                                        }
+
+
+                                                        <a href="@Url.Action("Eliminar", "Venta", new { IdProducto = @Varticulos.Producto.IdProducto })" class="btn btn-primary"><i class="fa fa-trash-o "></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    </form>
+                                                </td>
+
+                                                <td>$ @Varticulos.Producto.PrecioUnitario</td>
+
+
+                                                @{
+                                                        decimal totalP = 0;
+
+                                                        totalP += @Varticulos.Cantidad * @Varticulos.Producto.PrecioUnitario;
+
+                                                }
+                                                <td>$ @totalP    </td>
+
+                                            </tr>
+                                        }
+
+
+
+                                        <tr>
+                                            <td colspan="6">&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="5" class="text-right"><strong>Total Compra: </strong></td>
+                                            @{
+                                        decimal total = 0;
+                                        foreach (ML.VentaProducto ventaProducto in Model.Objects)
+                                        {
+                                            total += ventaProducto.Cantidad * ventaProducto.Producto.PrecioUnitario;
+                                        }
+                                            }
+                                            <td>$ @total</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("GetAll", "Venta")" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Continuar Comprando</a>
+                <a href="@Url.Action("ProcesarCompra", "Venta")" class="btn btn-primary pull-right">Procesar Compra<span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<script>
+    function showmodal() {
+        $('#examplemodal').alert();
+    }
+
+</script>
+
+<div class="alert" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="examplemodallabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="examplemodallabel">modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿deseas borrar el producto del carrito?
+            </div>
+            <div class="modal-footer">
+                @Html.ActionLink("no", "carrito", "venta", htmlAttributes: new { @class = "btn btn-md-danger" })
+                <button type="button" class="btn btn-primary" data-dismiss="modal">no</button>
+                <button type="button" class="btn btn-primary">save changes</button>
+                @Html.ActionLink("si", "eliminar", "venta", htmlAttributes: new { @class = "btn btn-default" })
+
+
+            </div>
+        </div>
+    </div>
+</div>*@
